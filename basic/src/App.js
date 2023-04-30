@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Home from './Home';
 import Profile from './Profile';
+import User from './User';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         </a> */}
         <Home />
         <Profile />
+        <User text="(User text from app)" />
       </header>
     </div>
   );
