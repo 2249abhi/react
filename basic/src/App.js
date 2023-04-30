@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Home from './Home';
+import Profile from './Profile';
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
           Learn React
         </a> */}
         <Home />
-        <Home />
+        <Profile />
       </header>
     </div>
   );
