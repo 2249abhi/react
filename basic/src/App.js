@@ -21,10 +21,10 @@ function App() {
           Learn React
         </a> */}
         <Home />
-        <Profile text={{name:'abhi'}} data="Profile class Data" />
-        <Profile text={{name:'rahul'}} data="Profile rahul class Data" />
+        <Profile text={{name:'ABHI'}} data="Profile class Data" />
+        {/* <Profile text={{name:'rahul'}} data="rahul Profile class Data" /> */}
         {/* <User text="(User text from app)" /> */}
-        <User text={{name:'shri'}} data="user fun Data" />
+        <User text={{name:'SHRI'}} data="user fun Data" />
       </header>
     </div>
   );

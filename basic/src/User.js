@@ -8,9 +8,9 @@ export default function User(usr)
 
     return (
             <div>
+                <h4>User FUNCTIONAL Component</h4>
                 {/* <h3 onClick={red}>{ usr.text} User (function Component)</h3> */}
-                <h3>{usr.text.name}</h3>
-                <h3>{usr.data}</h3>
+                <p><b>Calling functional props:-</b> {usr.text.name} {usr.data}</p>
             </div>
     );
     
