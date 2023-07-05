@@ -17,9 +17,10 @@ class Profile extends React.Component{
     {
         return(
             <div>
-                <h1>Profile (class component) </h1>
+                <h3>{this.props.text.name}</h3>
+                <h3>{this.props.data}</h3>
             </div>
         )
     }
 }
-export default Profile;
+export default Profile; 
