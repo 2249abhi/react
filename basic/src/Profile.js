@@ -30,7 +30,7 @@ class Profile extends React.Component{
     render()
     {
         return(
-            <div>
+            <div style={{border: "solid white 4px"}}>
                 <h4>Profile CLASS Component</h4>
                 <p><b>Calling class props:-</b> {this.props.text.name} {this.props.data}</p>
                 <p><b>Calling class State:-</b> {this.state.name} {this.state.count} {this.state.email}</p>
