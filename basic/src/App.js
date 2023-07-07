@@ -1,8 +1,9 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 import Home from './Home';
 import Profile from './Profile';
 import User from './User';
+import Forms from './Forms';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           Learn React
         </a> */}
         <Home />
+        <Forms />
         <Profile text={{name:'ABHI'}} data="Profile class Data" />
         {/* <Profile text={{name:'rahul'}} data="rahul Profile class Data" /> */}
         {/* <User text="(User text from app)" /> */}
