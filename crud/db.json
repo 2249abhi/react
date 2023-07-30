@@ -1,0 +1,32 @@
+{
+  "fruits": [
+    {
+      "id": 1,
+      "name": "Apples",
+      "quantity": 5,
+      "price": 1000,
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4ON3eNlQugqeti8PEca6iDJcqtjB9HX7c3A&usqp=CAU"
+    },
+    {
+      "name": "Mangoes1",
+      "quantity": 2,
+      "price": 650,
+      "imageUrl": "https://ichef.bbci.co.uk/images/ic/1200x675/p06hk0h6.jpg",
+      "id": 2
+    },
+    {
+      "name": "Grapes",
+      "quantity": 6,
+      "price": 100,
+      "imageUrl": "https://img.freepik.com/premium-vector/isolated-dark-grape-with-green-leaf_317810-1956.jpg?w=2000",
+      "id": 3
+    },
+    {
+      "name": "banana",
+      "quantity": 2,
+      "price": 80,
+      "imageUrl": "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/325879_2200-732x549.jpg",
+      "id": 4
+    }
+  ]
+}
