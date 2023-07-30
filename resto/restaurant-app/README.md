@@ -1,3 +1,11 @@
+/*
+add bootstrap in app
+step1: add "bootstrap" and "react-bootstrap"
+command: npm i bootstrap react-bootstrap
+
+# to run json server: npm run json-server
+*/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

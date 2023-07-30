@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter, Routes, Route, Outlet, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route,useParams, Outlet, Link } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './components/Home';
 import RestaurantCreate from './components/RestaurantCreate';
@@ -12,7 +12,7 @@ import RestaurantUpdate from './components/RestaurantUpdate';
 function App() {
   return (
     <div className="App">
-     
+
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -21,7 +21,8 @@ function App() {
             <Route path="detail" element={<RestaurantDetail />} />
             <Route path="list" element={<RestaurantList />} />
             <Route path="search" element={<RestaurantSearch />} />
-            <Route path="update" element={<RestaurantUpdate />} />
+            <Route path="update/:id" element={<RestaurantUpdate />} render={props=>(<RestaurantUpdate {...props} />
+            )} />
           </Route>
         </Routes>
         <header className="App-header"></header>

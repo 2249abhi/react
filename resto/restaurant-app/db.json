@@ -1,0 +1,46 @@
+{
+  "restaurant": [
+    {
+      "id": 1,
+      "name": "Pizza Hut",
+      "address": "Noida",
+      "rating": "4.5",
+      "email": "pizzahut@test.com"
+    },
+    {
+      "id": 2,
+      "name": "Mc Donald1",
+      "address": "Delhi",
+      "rating": "4.62",
+      "email": "mcdonald1@test.com"
+    },
+    {
+      "id": 4,
+      "name": "BBQ Nation",
+      "address": "Gurgaon",
+      "rating": "4.5",
+      "email": "bbq@test.com"
+    },
+    {
+      "id": 5,
+      "name": "haldiram1",
+      "address": "mayur vihar, Delhi",
+      "rating": "4.5",
+      "email": "haldiram1@test.com"
+    },
+    {
+      "name": "bikaner",
+      "address": "saket, Delhi",
+      "rating": "4.5",
+      "email": "bikaner@test.com",
+      "id": 6
+    },
+    {
+      "name": "chulhewala",
+      "address": "jhansi",
+      "rating": "4.7",
+      "email": "chulhewala@test.com",
+      "id": 7
+    }
+  ]
+}
