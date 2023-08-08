@@ -3,8 +3,9 @@ add bootstrap in app
 step1: add "bootstrap" and "react-bootstrap"
 command: npm i bootstrap react-bootstrap
 
-# to run json server: npm run json-server
-*/
+# to run json server:
+# ===> json-server --watch db.json --port 4000
+
 
 # Getting Started with Create React App
 

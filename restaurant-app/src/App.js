@@ -8,6 +8,7 @@ import RestaurantDetail from './components/RestaurantDetail';
 import RestaurantList from './components/RestaurantList';
 import RestaurantSearch from './components/RestaurantSearch';
 import RestaurantUpdate from './components/RestaurantUpdate';
+import Auth from './components/Auth';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
+            <Route path="auth" element={<Auth />} />
             <Route path="create" element={<RestaurantCreate />} />
             <Route path="detail" element={<RestaurantDetail />} />
             <Route path="list" element={<RestaurantList />} />
