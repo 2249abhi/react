@@ -1,5 +1,34 @@
 import React from "react"
 import ReactDom from "react-dom/client"
+import "./assets/css/style.css"
+import InputExample from "./FunctionalComponent/InputExample"
+
+const root = ReactDom.createRoot(document.getElementById('root'))
+
+root.render(
+    <>
+   <InputExample/>
+    </>
+)
+
+
+/* import React from "react"
+import ReactDom from "react-dom/client"
+import CssExample from "./FunctionalComponent/CssExample"
+
+const root = ReactDom.createRoot(document.getElementById('root'))
+
+root.render(
+    <>
+    <h3>Hello from index.js file</h3>
+   <CssExample/>
+    </>
+) */
+
+
+
+/* import React from "react"
+import ReactDom from "react-dom/client"
 import Parent from "./FunctionalComponent/LiftingStateUP/SendDataCP/Parent"
 import ImageExample from "./FunctionalComponent/ImageExample"
 
@@ -13,7 +42,7 @@ root.render(
     <hr/>
     <Parent/>
     </>
-)
+) */
 
 
 ////Call Data from parent to child
