@@ -1,5 +1,18 @@
 import React from "react"
 import ReactDom from "react-dom/client"
+import App from "./FunctionalComponent/RoutingExample/App"
+
+
+const root = ReactDom.createRoot(document.getElementById('root'))
+
+root.render(
+    <>
+   <App/>
+    </>
+)
+
+/* import React from "react"
+import ReactDom from "react-dom/client"
 import "./assets/css/style.css"
 import InputExample from "./FunctionalComponent/InputExample"
 
@@ -9,7 +22,7 @@ root.render(
     <>
    <InputExample/>
     </>
-)
+) */
 
 
 /* import React from "react"
