@@ -1,0 +1,9 @@
+.background {
+    background: linear-gradient(to right, blue,navy,green);
+}
+
+.card-title{
+    font-size: 0.9rem;
+    height: 80px;
+    border-bottom: 2px solid lightgray;
+}
