@@ -13,8 +13,9 @@ export default class Home extends Component {
     }
 
     async getAPIData(page) {
-        let response = await fetch(`https://newsapi.org/v2/everything?q=${this.props.search ? this.props.search : this.props.q}&pagesize=12&page=${page}&from=2024-09-21&language=${this.props.language2}&sortBy=publishedAt&apiKey=13bcaa31eec24610aa23311ff5aa44fc`)
+        let response = await fetch(`https://newsapi.org/v2/everything?q=${this.props.search ? this.props.search : this.props.q}&pagesize=12&page=${page}&language=${this.props.language2}&sortBy=publishedAt&apiKey=6f8408d86ca54623928fad572727d868`)
         response = await response.json()
+        
         if (response.status === 'ok') {
             // this.setState({
             //     articles: response.articles.filter(x=>x.title !== "[Removed]"),
