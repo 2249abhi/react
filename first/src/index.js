@@ -1,5 +1,23 @@
 import React from "react"
 import ReactDom from "react-dom/client"
+import UseMemoHookExample from "./FunctionalComponent/HooksExample/UseMemoHookExample"
+//import UseEffectHookExample from "./FunctionalComponent/HooksExample/UseEffectHookExample"
+
+
+
+const root = ReactDom.createRoot(document.getElementById('root'))
+
+root.render(
+    <>
+   {/* <UseEffectHookExample /> */}
+   <UseMemoHookExample />
+    </>
+)
+
+
+
+/* import React from "react"
+import ReactDom from "react-dom/client"
 import App from "./FunctionalComponent/RoutingExample/App"
 
 
@@ -9,7 +27,7 @@ root.render(
     <>
    <App/>
     </>
-)
+) */
 
 /* import React from "react"
 import ReactDom from "react-dom/client"
