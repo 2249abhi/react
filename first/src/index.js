@@ -1,22 +1,35 @@
 import React from "react"
 import ReactDom from "react-dom/client"
-import UseRefExample from "./FunctionalComponent/HooksExample/UseRefExample"
-//import Parent from "./FunctionalComponent/HooksExample/UseCallbackExample/Parent"
-//import UseMemoHookExample from "./FunctionalComponent/HooksExample/UseMemoHookExample"
-//import UseEffectHookExample from "./FunctionalComponent/HooksExample/UseEffectHookExample"
-
-
+import Parent from "./FunctionalComponent/ContextAPIExample/Parent"
 
 const root = ReactDom.createRoot(document.getElementById('root'))
 
 root.render(
     <>
-   {/* <UseEffectHookExample /> */}
-   {/* <UseMemoHookExample /> */}
-   {/* <Parent/> */}
-   <UseRefExample/>
+   <Parent/>
     </>
 )
+
+
+// import React from "react"
+// import ReactDom from "react-dom/client"
+// import UseRefExample from "./FunctionalComponent/HooksExample/UseRefExample"
+// //import Parent from "./FunctionalComponent/HooksExample/UseCallbackExample/Parent"
+// //import UseMemoHookExample from "./FunctionalComponent/HooksExample/UseMemoHookExample"
+// //import UseEffectHookExample from "./FunctionalComponent/HooksExample/UseEffectHookExample"
+
+
+
+// const root = ReactDom.createRoot(document.getElementById('root'))
+
+// root.render(
+//     <>
+//    {/* <UseEffectHookExample /> */}
+//    {/* <UseMemoHookExample /> */}
+//    {/* <Parent/> */}
+//    <UseRefExample/>
+//     </>
+// )
 
 
 
