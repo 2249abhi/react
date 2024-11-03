@@ -1,14 +1,28 @@
 import React from "react"
 import ReactDom from "react-dom/client"
-import Parent from "./FunctionalComponent/ContextAPIExample/Parent"
+import Parent from "./FunctionalComponent/ReducerExample/Parent"
+
 
 const root = ReactDom.createRoot(document.getElementById('root'))
 
 root.render(
     <>
-   <Parent/>
+    <Parent/>
     </>
 )
+
+
+// import React from "react"
+// import ReactDom from "react-dom/client"
+// import Parent from "./FunctionalComponent/ContextAPIExample/Parent"
+
+// const root = ReactDom.createRoot(document.getElementById('root'))
+
+// root.render(
+//     <>
+//    <Parent/>
+//     </>
+// )
 
 
 // import React from "react"
