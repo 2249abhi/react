@@ -1,6 +1,7 @@
 import React from "react"
 import ReactDom from "react-dom/client"
-import UseMemoHookExample from "./FunctionalComponent/HooksExample/UseMemoHookExample"
+import Parent from "./FunctionalComponent/HooksExample/UseCallbackExample/Parent"
+//import UseMemoHookExample from "./FunctionalComponent/HooksExample/UseMemoHookExample"
 //import UseEffectHookExample from "./FunctionalComponent/HooksExample/UseEffectHookExample"
 
 
@@ -10,7 +11,8 @@ const root = ReactDom.createRoot(document.getElementById('root'))
 root.render(
     <>
    {/* <UseEffectHookExample /> */}
-   <UseMemoHookExample />
+   {/* <UseMemoHookExample /> */}
+   <Parent/>
     </>
 )
 
