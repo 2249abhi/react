@@ -2,7 +2,7 @@ import React, { createContext, useReducer } from 'react'
 import reducer from './Reducer'
 import Child1 from './Child1'
 
-
+//reducer is used to update global state
 export const CounterContext = createContext()
 
 export default function Parent() {

@@ -5,6 +5,8 @@ export const NameContext = createContext()
 export const DesignationContext = createContext()
 export const SalaryContext = createContext()
 
+//it can consume data in any child(only consume)
+
 export default function Parent() {
   return (
     <>
