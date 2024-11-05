@@ -1,10 +1,12 @@
 import React from 'react'
+import ProductSlider from './Components/ProductSlider'
+import ProductComponent from './Components/ProductComponent'
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
       {/* <!-- Carousel Start --> */}
-        <div className="header-carousel owl-carousel  owl-loaded owl-drag">
+        <div className="header-carousel owl-carousel">
             <div className="header-carousel-item bg-primary">
                 <div className="carousel-caption">
                     <div className="container">
@@ -57,6 +59,8 @@ export default function Home() {
             </div>
         </div>
         {/* <!-- Carousel End --> */}
+        <ProductSlider/>
+        <ProductComponent/>
     </>
   )
 }
