@@ -1,4 +1,7 @@
 import React from 'react'
+import OwlCarousel from 'react-owl-carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
 
 export default function ProductSlider() {
   return (
@@ -12,7 +15,8 @@ export default function ProductSlider() {
                     </p>
                 </div>
                 <div className="row g-4 justify-content-center">
-                    <div className="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.2s">
+                <OwlCarousel className="owl-theme" loop margin={10} nav items={3}>
+                    <div className="header-carousel-item bg-primary" data-wow-delay="0.2s">
                         <div className="blog-item" style={{border:"1px solid"}}>
                             <div className="blog-img">
                                 <img src="img/blog-1.png" className="img-fluid rounded-top w-100" alt=""/>
@@ -30,7 +34,7 @@ export default function ProductSlider() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
+                    <div className="header-carousel-item bg-primary" data-wow-delay="0.4s">
                         <div className="blog-item"  style={{border:"1px solid"}}>
                             <div className="blog-img">
                                 <img src="img/blog-2.png" className="img-fluid rounded-top w-100" alt=""/>
@@ -47,7 +51,7 @@ export default function ProductSlider() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.6s">
+                    <div className="header-carousel-item bg-primary" data-wow-delay="0.6s">
                         <div className="blog-item"  style={{border:"1px solid"}}>
                             <div className="blog-img">
                                 <img src="img/blog-3.png" className="img-fluid rounded-top w-100" alt=""/>
@@ -64,6 +68,7 @@ export default function ProductSlider() {
                             </div>
                         </div>
                     </div>
+                </OwlCarousel>
                 </div>
             </div>
         </div>
