@@ -73,6 +73,7 @@ export default function Navbar() {
                                     </div>
                                 </div> */}
                                 <NavLink to="/contactus" className="nav-item nav-link">Contact</NavLink>
+                                <NavLink to="/admin" className="nav-item nav-link">Admin</NavLink>
                                 {/* <div className="nav-btn px-3">
                                     <button className="btn-search btn btn-primary btn-md-square rounded-circle flex-shrink-0" data-bs-toggle="modal" data-bs-target="#searchModal"><i className="fas fa-search"></i></button>
                                     <a href="#" className="btn btn-primary rounded-pill py-2 px-4 ms-3 flex-shrink-0"> Get a Quote</a>

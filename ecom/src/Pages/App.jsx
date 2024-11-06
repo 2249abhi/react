@@ -9,6 +9,10 @@ import FeaturesPage from './FeaturesPage'
 import TestimonialsPage from './TestimonialsPage'
 import Error404Page from './Error404Page'
 import ContactUsPage from './ContactUsPage'
+import AdminHome from './Admin/Home/AdminHome'
+import MainCategory from './Admin/Home/Category/MainCategory'
+import CreateMainCategory from './Admin/Home/Category/CreateMainCategory'
+
 
 
 export default function App() {
@@ -23,6 +27,13 @@ export default function App() {
                 <Route path='/testimonials' element={<TestimonialsPage />} />
                 <Route path='/contactus' element={<ContactUsPage />} />
                 <Route path='/*' element={<Error404Page />} />
+
+                {/* Admin Pages */}
+                <Route path='/admin' element={<AdminHome />} />
+                <Route path='/admin/maincategory' element={<MainCategory/>} />
+                <Route path='/admin/maincategory/create' element={<CreateMainCategory/>} />
+                
+
             </Routes>
         <Footer/>
     </BrowserRouter>
