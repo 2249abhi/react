@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Sidebar from '../../../Components/Sidebar'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import formValidator from '../../../Validators/formValidator'
 import imageValidator from '../../../Validators/imageValidator'
 
@@ -18,6 +18,7 @@ export default function CreateMainCategory() {
     })
 
     let [show, setShow] = useState(false)
+    let navigate = useNavigate()
 
     function getInputData(e) {
         let name = e.target.name
@@ -38,16 +39,31 @@ export default function CreateMainCategory() {
         })
     }
 
-    function postData(e) {
+   async function postData(e) {
         e.preventDefault()
+        console.log(errorMessage);
+        
         let error = Object.values(errorMessage).find((x) => x !== '')
-        if (error)
+        if (error) {
             setShow(true)
-        else
-            setShow(false)
-        console.log(e);
-
+        }
+        else {
+           let response = await fetch("http://localhost:8000/maincategory",{
+                method:"POST",
+                headers:{
+                    "content-type":"application/json"
+                },
+                body:JSON.stringify({...data})
+           })
+           response = await response.json()
+           if(response)
+            navigate("/admin/maincategory")   
+           else
+           alert("something went wrong")
+        }
+            
     }
+
     return (
         <div className='container-fluid my-3'>
             <div className='row'>
@@ -73,9 +89,9 @@ export default function CreateMainCategory() {
                             <div className="row">
                                 <div className="form-group col-md-6">
                                     <label>Status</label>
-                                    <select name='active' className='form-control'>
-                                        <option value={1}>Active</option>
-                                        <option value={0}>InActive</option>
+                                    <select name='active' onChange={getInputData} className='form-control'>
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
                                     </select>
                                 </div>
                             </div>

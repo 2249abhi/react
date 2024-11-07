@@ -1,0 +1,74 @@
+{
+  "maincategory": [
+    {
+      "id": "59a8",
+      "name": "Men",
+      "pic": "male.jpg",
+      "active": true
+    },
+    {
+      "id": "e7da",
+      "name": "men",
+      "pic": "kids.jpg",
+      "active": true
+    },
+    {
+      "id": "2637",
+      "name": "test",
+      "pic": "electronics.jpg",
+      "active": true
+    },
+    {
+      "id": "7fc3",
+      "name": "test",
+      "pic": "electronics.jpg",
+      "active": true
+    },
+    {
+      "id": "a7fe",
+      "name": "test",
+      "pic": "kids.jpg",
+      "active": true
+    },
+    {
+      "id": "41f0",
+      "name": "zczx",
+      "pic": "kids.jpg",
+      "active": true
+    },
+    {
+      "id": "1ec2",
+      "name": "test1234",
+      "pic": "male.jpg",
+      "active": true
+    },
+    {
+      "id": "a61e",
+      "name": "test today",
+      "pic": "female.jpg",
+      "active": true
+    },
+    {
+      "id": "ade3",
+      "name": "test1",
+      "pic": "male.jpg",
+      "active": true
+    },
+    {
+      "id": "a2a9",
+      "name": "test1",
+      "pic": "kids.jpg",
+      "active": true
+    }
+  ],
+  "subcategory": [],
+  "brand": [],
+  "product": [],
+  "testimonial": [],
+  "user": [],
+  "newsletter": [],
+  "cart": [],
+  "wishlist": [],
+  "checkout": [],
+  "contactus": []
+}
