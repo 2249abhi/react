@@ -22,7 +22,7 @@ export default function CreateMainCategory() {
 
     function getInputData(e) {
         let name = e.target.name
-        let value = e.target.files ? e.target.files[0].name : e.target.value
+        var value = e.target.files ? "maincategory/" + e.target.files[0].name : e.target.value
         if (name !== 'active') {
             setErrorMessage((old) => {
                 return {
@@ -48,7 +48,7 @@ export default function CreateMainCategory() {
             setShow(true)
         }
         else {
-           let response = await fetch("http://localhost:8000/maincategory",{
+           let response = await fetch(`${process.env.REACT_APP_SERVER}/maincategory`,{
                 method:"POST",
                 headers:{
                     "content-type":"application/json"
@@ -71,7 +71,7 @@ export default function CreateMainCategory() {
                     <Sidebar />
                 </div>
                 <div className='col-md-9'>
-                    <div className='bg-primary p-2 text-light text-center'>Create Main Category <Link to='/maincategory' className='fa fa-backward float-end text-light' > Back</Link></div><br />
+                    <div className='bg-primary p-2 text-light text-center'>Create Main Category <Link to='/admin/maincategory' className='fa fa-backward float-end text-light' > Back</Link></div><br />
                     <div className='container'>
                         <form onSubmit={postData}>
                             <div className="row">
