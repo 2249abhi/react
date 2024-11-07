@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import Sidebar from '../../../Components/Sidebar'
 import { Link } from 'react-router-dom'
+import $ from 'jquery';  // Import jQuery
+import 'datatables.net-dt/css/dataTables.dataTables.min.css'; // Import DataTables styles
+import 'datatables.net';
 
 export default function MainCategory() {
 
@@ -25,6 +28,7 @@ export default function MainCategory() {
     }
 
     async function getAPIData() {
+        //$('#maincategory').dataTable();
         let response = await fetch(`${process.env.REACT_APP_SERVER}/maincategory`, {
             method: "GET",
             headers: {
@@ -36,6 +40,9 @@ export default function MainCategory() {
 
         if (response) {
             setData(response)
+            setTimeout(()=>{
+                $('#maincategory').DataTable()
+            },200)
 
         } else {
             alert("something went wrong");
@@ -54,7 +61,7 @@ export default function MainCategory() {
                 </div>
                 <div className='col-md-9'>
                     <div className='bg-primary p-2 text-light text-center'>Main Category <Link to='/admin/maincategory/create' className='text-light' style={{ float: "right" }}><i className='fa fa-plus text-light'></i> Create Main Category</Link></div>
-                    <table className='table table-bordered'>
+                    <table className='table table-bordered' id='maincategory'>
                         <thead>
                             <tr>
                                 <th>Sr.No.</th>
