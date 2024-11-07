@@ -10,7 +10,7 @@ export default function MainCategory() {
                         <Sidebar/>
                     </div>
                     <div className='col-md-9'>
-                        <div className='bg-primary p-2 text-light text-center'>Main Category <Link to='/admin/maincategory/create' className='text-light float-right'><i className='fa fa-plus text-light'></i> Create Main Category</Link></div>
+                        <div className='bg-primary p-2 text-light text-center'>Main Category <Link to='/admin/maincategory/create' className='text-light' style={{float: "right"}}><i className='fa fa-plus text-light'></i> Create Main Category</Link></div>
                     </div>
                 </div>
             </div>
