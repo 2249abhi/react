@@ -5,6 +5,25 @@ import { Link } from 'react-router-dom'
 export default function MainCategory() {
 
     let [data, setData] = useState([])
+
+    async function deleteData(id) {
+        
+        if(window.confirm("Are you sure to delete this Record?")) {
+            let response = await fetch(`${process.env.REACT_APP_SERVER}/maincategory/${id}`, {
+                method: "DELETE",
+                headers: {
+                    "content-type": "application/json"
+                }
+            })
+    
+            response = await response.json()
+            if(response) {
+                getAPIData()
+            }
+        }
+        
+    }
+
     async function getAPIData() {
         let response = await fetch(`${process.env.REACT_APP_SERVER}/maincategory`, {
             method: "GET",
@@ -42,7 +61,7 @@ export default function MainCategory() {
                                 <th>Name</th>
                                 <th>Image</th>
                                 <th>Active</th>
-                                <th></th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -59,7 +78,10 @@ export default function MainCategory() {
                                             <a href={`${process.env.REACT_APP_SERVER}/${item.pic}`} rel="noreferrer" target="_blank" ><img src={`${process.env.REACT_APP_SERVER}/${item.pic}`} height="50" alt="" /></a>
                                         </td>
                                         <td>{item.active ? 'Yes' : 'No'}</td>
-                                        <td></td>
+                                        <td>
+                                            <Link to={`/admin/maincategory/update/${item.id}`}><i className='fa fa-edit'></i></Link>&nbsp;
+                                            <button className='btn' onClick={()=>deleteData(item.id)} ><i className='fa fa-trash' style={{color:"red"}}></i></button>
+                                        </td>
                                     </tr>
                                 })
                             }
