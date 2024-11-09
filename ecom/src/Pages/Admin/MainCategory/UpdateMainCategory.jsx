@@ -1,10 +1,14 @@
-import React, { useState } from 'react'
-import Sidebar from '../../../Components/Sidebar'
-import { Link, useNavigate } from 'react-router-dom'
-import formValidator from '../../../Validators/formValidator'
-import imageValidator from '../../../Validators/imageValidator'
+import React, { useEffect, useState } from 'react'
+import Sidebar from '../../Components/Sidebar'
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import formValidator from '../../Validators/formValidator'
+import imageValidator from '../../Validators/imageValidator'
 
-export default function CreateMainCategory() {
+export default function UpdateMainCategory() {
+
+    let {id} = useParams()
+    let [maincategory, setMaincategory] = useState([])
+    
     let [data, setData] = useState({
         name: "",
         pic: "",
@@ -13,12 +17,13 @@ export default function CreateMainCategory() {
     })
 
     let [errorMessage, setErrorMessage] = useState({
-        name: "Name field is mendatoy",
-        pic: "Pic field is mendatory"
+        name: "",
+        pic: ""
     })
 
     let [show, setShow] = useState(false)
     let navigate = useNavigate()
+    
 
     function getInputData(e) {
         let name = e.target.name
@@ -48,8 +53,8 @@ export default function CreateMainCategory() {
             setShow(true)
         }
         else {
-           let response = await fetch(`${process.env.REACT_APP_SERVER}/maincategory`,{
-                method:"POST",
+           let response = await fetch(`${process.env.REACT_APP_SERVER}/maincategory/${id}`,{
+                method:"PUT",
                 headers:{
                     "content-type":"application/json"
                 },
@@ -64,6 +69,31 @@ export default function CreateMainCategory() {
             
     }
 
+    useEffect(()=>{
+        (async ()=>{
+            let response = await fetch(`${process.env.REACT_APP_SERVER}/maincategory`, {
+                method: "GET",
+                headers: {
+                    "content-type": "application/json"
+                }
+            })
+            response = await response.json()
+
+            if (response) {
+                setMaincategory(response)
+                let item = response.find((x) => x.id === id)
+                if (item) {
+                    setData({ ...item })
+                }
+            }
+            else {
+                alert("Something Went Wrong")
+            }
+                
+
+        })()
+    },[])
+
     return (
         <div className='container-fluid my-3'>
             <div className='row'>
@@ -77,7 +107,7 @@ export default function CreateMainCategory() {
                             <div className="row">
                                 <div className="form-group col-md-4">
                                     <label >Main Category Name*</label>
-                                    <input type="text" name="name" onChange={getInputData} className={`form-control ${show && errorMessage.name ? 'border-danger' : ''}`} id="nameFormControlInput1" placeholder="Enter Main Category Name" />
+                                    <input type="text" name="name" value={data.name} onChange={getInputData} className={`form-control ${show && errorMessage.name ? 'border-danger' : ''}`} id="nameFormControlInput1" placeholder="Enter Main Category Name" />
                                     {show && errorMessage.name ? <p className='text-danger text-capitalize'>{errorMessage.name}</p> : '   '}
                                 </div>
                                 <div className="form-group col-md-4">
@@ -89,9 +119,9 @@ export default function CreateMainCategory() {
                             <div className="row">
                                 <div className="form-group col-md-6">
                                     <label>Status</label>
-                                    <select name='active' onChange={getInputData} className='form-control'>
+                                    <select name='active' value={data.active?"1":"0"} onChange={getInputData} className='form-control'>
                                         <option value="1">Yes</option>
-                                        <option value="0">No</option>
+                                        <option  value="0">No</option>
                                     </select>
                                 </div>
                             </div>

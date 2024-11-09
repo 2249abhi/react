@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import Sidebar from '../../../Components/Sidebar'
-import { Link, useNavigate, useParams } from 'react-router-dom'
-import formValidator from '../../../Validators/formValidator'
-import imageValidator from '../../../Validators/imageValidator'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 
-export default function UpdateMainCategory() {
+import Sidebar from '../../Components/Sidebar'
 
-    let {id} = useParams()
-    let [maincategory, setMaincategory] = useState([])
-    
+import formValidator from '../../Validators/formValidator'
+import imageValidator from '../../Validators/imageValidator'
+//import { createMaincategory } from '../../../Redux/ActionCreators/MainCategoryActionCreators'
+
+ 
+export default function CreateMainCategory() {
     let [data, setData] = useState({
         name: "",
         pic: "",
@@ -17,14 +18,15 @@ export default function UpdateMainCategory() {
     })
 
     let [errorMessage, setErrorMessage] = useState({
-        name: "",
-        pic: ""
+        name: "Name field is mendatoy",
+        pic: "Pic field is mendatory"
     })
 
     let [show, setShow] = useState(false)
     let navigate = useNavigate()
+    let dispatch = useDispatch()
+    let MaincategoryStateData = useSelector((state)=>state.MaincategoryStateData)
     
-
     function getInputData(e) {
         let name = e.target.name
         var value = e.target.files ? "maincategory/" + e.target.files[0].name : e.target.value
@@ -46,53 +48,36 @@ export default function UpdateMainCategory() {
 
    async function postData(e) {
         e.preventDefault()
-        console.log(errorMessage);
+        // console.log(errorMessage);
         
         let error = Object.values(errorMessage).find((x) => x !== '')
         if (error) {
             setShow(true)
         }
         else {
-           let response = await fetch(`${process.env.REACT_APP_SERVER}/maincategory/${id}`,{
-                method:"PUT",
+            /* let response = await fetch(`${process.env.REACT_APP_SERVER}/maincategory`,{
+                method:"POST",
                 headers:{
                     "content-type":"application/json"
-                },
-                body:JSON.stringify({...data})
-           })
-           response = await response.json()
-           if(response)
-            navigate("/admin/maincategory")   
-           else
-           alert("something went wrong")
+                    },
+                    body:JSON.stringify({...data})
+                    })
+                    response = await response.json() 
+
+                    if(response)
+                    navigate("/admin/maincategory")   
+                    else
+                    alert("something went wrong")
+                    */        
+
+                //dispatch(createMaincategory({...data}))
+                
+                navigate("/admin/maincategory")   
+
+           
         }
             
     }
-
-    useEffect(()=>{
-        (async ()=>{
-            let response = await fetch(`${process.env.REACT_APP_SERVER}/maincategory`, {
-                method: "GET",
-                headers: {
-                    "content-type": "application/json"
-                }
-            })
-            response = await response.json()
-
-            if (response) {
-                setMaincategory(response)
-                let item = response.find((x) => x.id === id)
-                if (item) {
-                    setData({ ...item })
-                }
-            }
-            else {
-                alert("Something Went Wrong")
-            }
-                
-
-        })()
-    },[])
 
     return (
         <div className='container-fluid my-3'>
@@ -107,7 +92,7 @@ export default function UpdateMainCategory() {
                             <div className="row">
                                 <div className="form-group col-md-4">
                                     <label >Main Category Name*</label>
-                                    <input type="text" name="name" value={data.name} onChange={getInputData} className={`form-control ${show && errorMessage.name ? 'border-danger' : ''}`} id="nameFormControlInput1" placeholder="Enter Main Category Name" />
+                                    <input type="text" name="name" onChange={getInputData} className={`form-control ${show && errorMessage.name ? 'border-danger' : ''}`} id="nameFormControlInput1" placeholder="Enter Main Category Name" />
                                     {show && errorMessage.name ? <p className='text-danger text-capitalize'>{errorMessage.name}</p> : '   '}
                                 </div>
                                 <div className="form-group col-md-4">
@@ -119,9 +104,9 @@ export default function UpdateMainCategory() {
                             <div className="row">
                                 <div className="form-group col-md-6">
                                     <label>Status</label>
-                                    <select name='active' value={data.active?"1":"0"} onChange={getInputData} className='form-control'>
+                                    <select name='active' onChange={getInputData} className='form-control'>
                                         <option value="1">Yes</option>
-                                        <option  value="0">No</option>
+                                        <option value="0">No</option>
                                     </select>
                                 </div>
                             </div>

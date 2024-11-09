@@ -10,9 +10,9 @@ import TestimonialsPage from './TestimonialsPage'
 import Error404Page from './Error404Page'
 import ContactUsPage from './ContactUsPage'
 import AdminHome from './Admin/Home/AdminHome'
-import MainCategory from './Admin/Home/Category/MainCategory'
-import CreateMainCategory from './Admin/Home/Category/CreateMainCategory'
-import UpdateMainCategory from './Admin/Home/Category/UpdateMainCategory'
+import MainCategory from './Admin/MainCategory/MainCategory'
+import CreateMainCategory from './Admin/MainCategory/CreateMainCategory'
+import UpdateMainCategory from './Admin/MainCategory/UpdateMainCategory'
 
 
 

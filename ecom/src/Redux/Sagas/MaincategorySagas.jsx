@@ -5,22 +5,22 @@ import { CREATE_MAINCATEGORY, CREATE_MAINCATEGORY_RED, DELETE_MAINCATEGORY, GET_
 
 function* createSaga(action) {
     //saga uses 'yield' instead of 'return'
-    const response = yield createRecord(action.payload)//it is calling effect means calling API
+    const response = yield createRecord("maincategory",action.payload)//it is calling effect means calling API
     put({type:CREATE_MAINCATEGORY_RED,payload:response})
 }
 
 function* getSaga(action) {
-    const response = yield getRecord()
+    const response = yield getRecord("maincategory")
     put({type:GET_MAINCATEGORY_RED,payload:response})
 }
 
 function* updateSaga(action) {
-    yield updateRecord() 
+    yield updateRecord("maincategory",action.payload) 
     put({type:UPDATE_MAINCATEGORY_RED,payload:action.payload})
 }
 
 function* deleteSaga(action) {
-    yield deleteRecord()
+    yield deleteRecord("maincategory",action.payload)
     put({type:DELETE_MAINCATEGORY,payload:action.payload})
 }
 
