@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import Sidebar from '../../Components/Sidebar'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+
 import $ from 'jquery';  // Import jQuery
 import 'datatables.net-dt/css/dataTables.dataTables.min.css'; // Import DataTables styles
 import 'datatables.net';
+import { getReduxMaincategory } from '../../../Redux/ActionCreators/MaincategoryActionCreators';
 
 export default function MainCategory() {
 
     let [data, setData] = useState([])
+    let dispatch = useDispatch()
+    let MaincategoryStateData = useSelector((state)=>state.MaincategoryStateData)
 
     async function deleteData(id) {
         
@@ -20,14 +25,30 @@ export default function MainCategory() {
             })
     
             response = await response.json()
-            if(response) {
+            //if(response) {
                 getAPIData()
-            }
+            //}
         }
         
     }
 
-    async function getAPIData() {
+    function getAPIData() {
+       // console.log(MaincategoryStateData);
+        
+        dispatch(getReduxMaincategory())
+        if(MaincategoryStateData.length) {
+            setData(MaincategoryStateData)
+        } else {
+            setData([])
+        }
+
+        setTimeout(()=>{
+            $('#maincategory').DataTable()
+        },200)
+
+    }
+
+    /* async function getAPIData() {
         //$('#maincategory').dataTable();
         let response = await fetch(`${process.env.REACT_APP_SERVER}/maincategory`, {
             method: "GET",
@@ -48,11 +69,11 @@ export default function MainCategory() {
             alert("something went wrong");
         }
 
-    }
+    } */
 
     useEffect(() => {
         getAPIData()
-    }, [])
+    }, [MaincategoryStateData.length])
     return (
         <div className='container-fluid my-3'>
             <div className='row'>
