@@ -6,7 +6,7 @@ import Sidebar from '../../Components/Sidebar'
 
 import formValidator from '../../Validators/formValidator'
 import imageValidator from '../../Validators/imageValidator'
-import { createReduxMaincategory } from '../../../Redux/ActionCreators/MaincategoryActionCreators'
+import { createMaincategory } from '../../../Redux/ActionCreators/MaincategoryActionCreators'
 
  
 export default function CreateMainCategory() {
@@ -70,7 +70,7 @@ export default function CreateMainCategory() {
                     alert("something went wrong")
                     */        
 
-                dispatch(createReduxMaincategory())
+                dispatch(createMaincategory({...data}))
                 
                 navigate("/admin/maincategory")   
 

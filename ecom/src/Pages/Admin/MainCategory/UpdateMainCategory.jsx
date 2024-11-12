@@ -4,6 +4,8 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import formValidator from '../../Validators/formValidator'
 import imageValidator from '../../Validators/imageValidator'
 
+import {} from "../../../Redux/ActionCreators/MaincategoryActionCreators"
+
 export default function UpdateMainCategory() {
 
     let {id} = useParams()

@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import $ from 'jquery';  // Import jQuery
 import 'datatables.net-dt/css/dataTables.dataTables.min.css'; // Import DataTables styles
 import 'datatables.net';
-import { getReduxMaincategory } from '../../../Redux/ActionCreators/MaincategoryActionCreators';
+import { getMaincategory } from '../../../Redux/ActionCreators/MaincategoryActionCreators';
 
 export default function MainCategory() {
 
@@ -35,7 +35,7 @@ export default function MainCategory() {
     function getAPIData() {
        // console.log(MaincategoryStateData);
         
-        dispatch(getReduxMaincategory())
+        dispatch(getMaincategory())
         if(MaincategoryStateData.length) {
             setData(MaincategoryStateData)
         } else {
