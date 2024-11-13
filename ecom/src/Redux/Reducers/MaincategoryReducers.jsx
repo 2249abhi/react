@@ -13,10 +13,10 @@ export default function MaincategoryReducers(state=[],action) {
             return action.payload
         
         case UPDATE_MAINCATEGORY_RED:
-            index = state.payload.findIndex((x)=>x.id === action.payload.id)
-            state[index].name = state.payload.name
-            state[index].pic = state.payload.pic
-            state[index].active = state.payload.active
+            let index = state.findIndex((x)=>x.id === action.payload.id)
+            state[index].name = action.payload.name
+            state[index].pic = action.payload.pic
+            state[index].active = action.payload.active
             return state
         case DELETE_MAINCATEGORY_RED:
             newState = state.filter((x)=>x.id !== action.payload.id)

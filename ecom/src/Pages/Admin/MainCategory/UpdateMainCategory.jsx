@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from 'react'
-import Sidebar from '../../Components/Sidebar'
 import { Link, useNavigate, useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+
+import Sidebar from '../../Components/Sidebar'
+
 import formValidator from '../../Validators/formValidator'
 import imageValidator from '../../Validators/imageValidator'
 
-import {} from "../../../Redux/ActionCreators/MaincategoryActionCreators"
+import {getMaincategory, updateMaincategory} from "../../../Redux/ActionCreators/MaincategoryActionCreators"
 
 export default function UpdateMainCategory() {
 
     let {id} = useParams()
     let [maincategory, setMaincategory] = useState([])
-    
     let [data, setData] = useState({
         name: "",
         pic: "",
         active: true
-
     })
 
     let [errorMessage, setErrorMessage] = useState({
@@ -24,6 +25,11 @@ export default function UpdateMainCategory() {
     })
 
     let [show, setShow] = useState(false)
+
+    let MaincategoryStateData = useSelector((state)=>state.MaincategoryStateData)
+
+    let dispatch = useDispatch()
+
     let navigate = useNavigate()
     
 
@@ -46,7 +52,50 @@ export default function UpdateMainCategory() {
         })
     }
 
-   async function postData(e) {
+    function postData(e) {
+        e.preventDefault()
+        console.log(errorMessage);
+        
+        let error = Object.values(errorMessage).find((x) => x !== '')
+        if (error) {
+            setShow(true)
+        }
+        else {
+            // console.log(data);
+            
+            dispatch(updateMaincategory({...data}))
+            navigate("/admin/maincategory")
+           /*
+           //without redux & saga code 
+           let response = await fetch(`${process.env.REACT_APP_SERVER}/maincategory/${id}`,{
+                method:"PUT",
+                headers:{
+                    "content-type":"application/json"
+                },
+                body:JSON.stringify({...data})
+           })
+           response = await response.json()
+           if(response)
+            navigate("/admin/maincategory")   
+           else
+           alert("something went wrong") */
+        }
+            
+    }
+
+    useEffect(()=>{
+        (()=>{
+            dispatch(getMaincategory())
+
+            if(MaincategoryStateData.length) {
+                setMaincategory(MaincategoryStateData)
+                let item = MaincategoryStateData.find((x)=>x.id === id)
+                setData({...item})
+            }
+        })()
+    },[MaincategoryStateData.length])
+    
+   /* async function postData(e) {
         e.preventDefault()
         console.log(errorMessage);
         
@@ -94,7 +143,7 @@ export default function UpdateMainCategory() {
                 
 
         })()
-    },[])
+    },[]) */
 
     return (
         <div className='container-fluid my-3'>
