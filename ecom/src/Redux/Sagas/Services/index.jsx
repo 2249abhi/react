@@ -33,6 +33,17 @@ export async function getRecord(collection) {
     return await response.json()    
 }
 
+export async function editRecord(collection, payload) {
+    let response = await fetch(`${process.env.REACT_APP_SERVER}/${collection}/${payload}`,{
+        method:"GET",
+        headers:{
+            "content-type":"application/json"
+        },
+    })
+
+    return await response.json()    
+}
+
 export async function updateRecord(collection, payload) {
     let response = await fetch(`${process.env.REACT_APP_SERVER}/${collection}/${payload.id}`,{
         method:"PUT",

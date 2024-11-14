@@ -7,7 +7,7 @@ import Sidebar from '../../Components/Sidebar'
 import formValidator from '../../Validators/formValidator'
 import imageValidator from '../../Validators/imageValidator'
 
-import {getMaincategory, updateMaincategory} from "../../../Redux/ActionCreators/MaincategoryActionCreators"
+import {getMaincategory, updateMaincategory, editMaincategory} from "../../../Redux/ActionCreators/MaincategoryActionCreators"
 
 export default function UpdateMainCategory() {
 
@@ -54,43 +54,32 @@ export default function UpdateMainCategory() {
 
     function postData(e) {
         e.preventDefault()
-        console.log(errorMessage);
         
         let error = Object.values(errorMessage).find((x) => x !== '')
         if (error) {
             setShow(true)
         }
         else {
-            // console.log(data);
-            
             dispatch(updateMaincategory({...data}))
             navigate("/admin/maincategory")
-           /*
-           //without redux & saga code 
-           let response = await fetch(`${process.env.REACT_APP_SERVER}/maincategory/${id}`,{
-                method:"PUT",
-                headers:{
-                    "content-type":"application/json"
-                },
-                body:JSON.stringify({...data})
-           })
-           response = await response.json()
-           if(response)
-            navigate("/admin/maincategory")   
-           else
-           alert("something went wrong") */
         }
             
     }
 
     useEffect(()=>{
-        (()=>{
-            dispatch(getMaincategory())
+        (()=>{            
+            //dispatch(editMaincategory(id))
+            // if(MaincategoryStateData) {
+            //     setData(MaincategoryStateData)
+            // } else {
+            //     setData([])
+            // }
 
-            if(MaincategoryStateData.length) {
+            dispatch(getMaincategory())
+            if (MaincategoryStateData.length) {
                 setMaincategory(MaincategoryStateData)
-                let item = MaincategoryStateData.find((x)=>x.id === id)
-                setData({...item})
+                let item = MaincategoryStateData.find((x) => x.id === id)
+                setData({ ...item })
             }
         })()
     },[MaincategoryStateData.length])
@@ -118,11 +107,11 @@ export default function UpdateMainCategory() {
            alert("something went wrong")
         }
             
-    }
-
-    useEffect(()=>{
+    }*/
+    
+   /*  useEffect(()=>{
         (async ()=>{
-            let response = await fetch(`${process.env.REACT_APP_SERVER}/maincategory`, {
+            let response = await fetch(`${process.env.REACT_APP_SERVER}/maincategory/${id}`, {
                 method: "GET",
                 headers: {
                     "content-type": "application/json"
@@ -131,10 +120,10 @@ export default function UpdateMainCategory() {
             response = await response.json()
 
             if (response) {
-                setMaincategory(response)
-                let item = response.find((x) => x.id === id)
-                if (item) {
-                    setData({ ...item })
+               // setMaincategory(response)
+                //let item = response.find((x) => x.id === id)
+                if (response) {
+                    setData({ ...response })
                 }
             }
             else {
@@ -143,7 +132,7 @@ export default function UpdateMainCategory() {
                 
 
         })()
-    },[]) */
+    },[])  */
 
     return (
         <div className='container-fluid my-3'>

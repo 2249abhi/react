@@ -1,6 +1,6 @@
 import { put, takeEvery } from "redux-saga/effects";
-import { createRecord, deleteRecord, getRecord, updateRecord } from "./Services";
-import { CREATE_MAINCATEGORY, CREATE_MAINCATEGORY_RED, DELETE_MAINCATEGORY, GET_MAINCATEGORY, GET_MAINCATEGORY_RED, UPDATE_MAINCATEGORY, UPDATE_MAINCATEGORY_RED } from "../Constant";
+import { createRecord, deleteRecord, getRecord, editRecord, updateRecord } from "./Services";
+import { CREATE_MAINCATEGORY, CREATE_MAINCATEGORY_RED, DELETE_MAINCATEGORY, EDIT_MAINCATEGORY, EDIT_MAINCATEGORY_RED, GET_MAINCATEGORY, GET_MAINCATEGORY_RED, UPDATE_MAINCATEGORY, UPDATE_MAINCATEGORY_RED } from "../Constant";
 
 
 function* createSaga(action) {
@@ -14,7 +14,14 @@ function* getSaga(action) {
     yield put({type:GET_MAINCATEGORY_RED,payload:response})
 }
 
+function* editSaga(action) {
+    const response = editRecord("maincategory",action.payload)  
+    yield put({type:EDIT_MAINCATEGORY_RED,payload:response})
+}
+
 function* updateSaga(action) {
+   // console.log('saga:'+action.payload);
+    
     yield updateRecord("maincategory",action.payload) 
     yield put({type:UPDATE_MAINCATEGORY_RED,payload:action.payload})
 }
@@ -27,6 +34,7 @@ function* deleteSaga(action) {
 export default function* maincategorySagas() {
     yield takeEvery(CREATE_MAINCATEGORY,createSaga)
     yield takeEvery(GET_MAINCATEGORY,getSaga)
+    yield takeEvery(EDIT_MAINCATEGORY,editSaga)
     yield takeEvery(UPDATE_MAINCATEGORY,updateSaga)
     yield takeEvery(DELETE_MAINCATEGORY,deleteSaga)
 } 
