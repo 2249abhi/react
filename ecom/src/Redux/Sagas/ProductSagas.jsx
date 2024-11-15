@@ -6,6 +6,7 @@ import { CREATE_PRODUCT, CREATE_PRODUCT_RED, DELETE_PRODUCT, EDIT_PRODUCT, EDIT_
 function* createSaga(action) {
     //saga uses 'yield' instead of 'return'
     const response = yield createRecord("product",action.payload)//it is calling effect means calling API
+    // const response = yield createFormGroupData("product",action.payload)//For Real Backend
     yield put({type:CREATE_PRODUCT_RED,payload:response})
 }
 
@@ -23,6 +24,7 @@ function* updateSaga(action) {
    // console.log('saga:'+action.payload);
     
     yield updateRecord("product",action.payload) 
+    // yield updateFormGroupData("product",action.payload) //For Real Backend
     yield put({type:UPDATE_PRODUCT_RED,payload:action.payload})
 }
 

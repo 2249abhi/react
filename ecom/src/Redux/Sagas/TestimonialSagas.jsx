@@ -6,6 +6,7 @@ import { CREATE_TESTIMONIAL, CREATE_TESTIMONIAL_RED, DELETE_TESTIMONIAL, EDIT_TE
 function* createSaga(action) {
     //saga uses 'yield' instead of 'return'
     const response = yield createRecord("testimonial",action.payload)//it is calling effect means calling API
+    // const response = yield createFormGroupData("testimonial",action.payload)//For Real Backend
     yield put({type:CREATE_TESTIMONIAL_RED,payload:response})
 }
 
@@ -23,6 +24,7 @@ function* updateSaga(action) {
    // console.log('saga:'+action.payload);
     
     yield updateRecord("testimonial",action.payload) 
+    // yield updateFormGroupData("testimonial",action.payload) //For Real Backend
     yield put({type:UPDATE_TESTIMONIAL_RED,payload:action.payload})
 }
 

@@ -61,6 +61,17 @@ export default function UpdateMainCategory() {
         }
         else {
             dispatch(updateMaincategory({...data}))
+
+            //for real backend
+
+            // const item = new FormData()
+            // item.append("_id",data._id)//for mongodb
+            // item.append("id",data._id)//for other DB
+            // item.append("name",data.name)
+            // item.append("pic",data.pic)
+            // item.append("active",data.active)
+            // dispatch(updateMaincategory(item))
+
             navigate("/admin/maincategory")
         }
             

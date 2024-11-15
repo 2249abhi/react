@@ -6,6 +6,7 @@ import { CREATE_BRAND, CREATE_BRAND_RED, DELETE_BRAND, EDIT_BRAND, EDIT_BRAND_RE
 function* createSaga(action) {
     //saga uses 'yield' instead of 'return'
     const response = yield createRecord("brand",action.payload)//it is calling effect means calling API
+    // const response = yield createFormGroupData("brand",action.payload)//for real backend
     yield put({type:CREATE_BRAND_RED,payload:response})
 }
 
@@ -23,6 +24,7 @@ function* updateSaga(action) {
    // console.log('saga:'+action.payload);
     
     yield updateRecord("brand",action.payload) 
+    // yield updateFormGroupData("brand",action.payload) //for real backend
     yield put({type:UPDATE_BRAND_RED,payload:action.payload})
 }
 

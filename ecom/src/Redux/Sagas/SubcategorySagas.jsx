@@ -6,6 +6,7 @@ import { CREATE_SUBCATEGORY, CREATE_SUBCATEGORY_RED, DELETE_SUBCATEGORY, EDIT_SU
 function* createSaga(action) {
     //saga uses 'yield' instead of 'return'
     const response = yield createRecord("subcategory",action.payload)//it is calling effect means calling API
+    // const response = yield createFormGroupData("subcategory",action.payload)//For Real Backend
     yield put({type:CREATE_SUBCATEGORY_RED,payload:response})
 }
 
@@ -23,6 +24,7 @@ function* updateSaga(action) {
    // console.log('saga:'+action.payload);
     
     yield updateRecord("subcategory",action.payload) 
+    // yield updateFormGroupData("subcategory",action.payload) //For Real Backend
     yield put({type:UPDATE_SUBCATEGORY_RED,payload:action.payload})
 }
 
