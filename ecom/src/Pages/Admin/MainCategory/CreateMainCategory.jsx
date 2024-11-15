@@ -30,6 +30,7 @@ export default function CreateMainCategory() {
     function getInputData(e) {
         let name = e.target.name
         var value = e.target.files ? "maincategory/" + e.target.files[0].name : e.target.value
+        // var value = e.target.files ?  e.target.files : e.target.value //in case of real backend
         if (name !== 'active') {
             setErrorMessage((old) => {
                 return {
@@ -71,7 +72,14 @@ export default function CreateMainCategory() {
                     */        
 
                 dispatch(createMaincategory({...data}))
-                
+
+                //for real backend
+                // const item = new FormData()
+                // item.append("name",data.name)
+                // item.append("pic",data.pic)
+                // item.append("active",data.active)
+                // dispatch(createMaincategory(item))
+
                 navigate("/admin/maincategory")   
 
            

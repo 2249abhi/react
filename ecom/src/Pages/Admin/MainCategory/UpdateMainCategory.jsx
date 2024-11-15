@@ -70,7 +70,7 @@ export default function UpdateMainCategory() {
         (()=>{            
             //dispatch(editMaincategory(id))
             // if(MaincategoryStateData) {
-            //     setData(MaincategoryStateData)
+            //  setData({...MaincategoryStateData})
             // } else {
             //     setData([])
             // }
