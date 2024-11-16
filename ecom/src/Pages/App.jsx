@@ -10,9 +10,22 @@ import TestimonialsPage from './TestimonialsPage'
 import Error404Page from './Error404Page'
 import ContactUsPage from './ContactUsPage'
 import AdminHome from './Admin/Home/AdminHome'
-import Maincategory from './Admin/MainCategory/Maincategory'
-import CreateMaincategory from './Admin/MainCategory/CreateMaincategory'
-import UpdateMaincategory from './Admin/MainCategory/UpdateMaincategory'
+
+import Maincategory from './Admin/Maincategory/Maincategory'
+import CreateMaincategory from './Admin/Maincategory/CreateMaincategory'
+import UpdateMaincategory from './Admin/Maincategory/UpdateMaincategory'
+
+import Subcategory from './Admin/Subcategory/Subcategory'
+import CreateSubcategory from './Admin/Subcategory/CreateSubcategory'
+import UpdateSubcategory from './Admin/Subcategory/UpdateSubcategory'
+
+import ListBrand from './Admin/Brand/ListBrand'
+import CreateBrand from './Admin/Brand/CreateBrand'
+import UpdateBrand from './Admin/Brand/UpdateBrand'
+
+import ListTestimonial from './Admin/Testimonial/ListTestimonial'
+import CreateTestimonial from './Admin/Testimonial/CreateTestimonial'
+import UpdateTestimonial from './Admin/Testimonial/UpdateTestimonial'
 
 
 
@@ -34,6 +47,19 @@ export default function App() {
                 <Route path='/admin/maincategory' element={<Maincategory/>} />
                 <Route path='/admin/maincategory/create' element={<CreateMaincategory/>} />
                 <Route path='/admin/maincategory/update/:id' element={ <UpdateMaincategory/> } />
+                
+                <Route path='/admin/subcategory' element={<Subcategory/>} />
+                <Route path='/admin/subcategory/create' element={<CreateSubcategory/>} />
+                <Route path='/admin/subcategory/update/:id' element={ <UpdateSubcategory/> } />
+
+                <Route path='/admin/brand' element={<ListBrand/>} />
+                <Route path='/admin/brand/create' element={<CreateBrand/>} />
+                <Route path='/admin/brand/update/:id' element={ <UpdateBrand/> } />
+
+                <Route path='/admin/testimonial' element={<ListTestimonial/>} />
+                <Route path='/admin/testimonial/create' element={<CreateTestimonial/>} />
+                <Route path='/admin/testimonial/update/:id' element={ <UpdateTestimonial/> } />
+                
                 
 
             </Routes>

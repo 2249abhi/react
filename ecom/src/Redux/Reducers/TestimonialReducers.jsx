@@ -18,6 +18,7 @@ export default function TestimonialReducers(state=[],action) {
         return {
             ...state,
             name: action.payload.name,
+            message: action.payload.message,
             age: action.payload.age,
             email: action.payload.email,
           }
@@ -25,6 +26,7 @@ export default function TestimonialReducers(state=[],action) {
         case UPDATE_TESTIMONIAL_RED:
             let index = state.findIndex((x)=>x.id === action.payload.id)
             state[index].name = action.payload.name
+            state[index].message = action.payload.message
             state[index].pic = action.payload.pic
             state[index].active = action.payload.active
             return state
