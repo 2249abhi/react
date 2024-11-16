@@ -8,7 +8,7 @@ import 'datatables.net-dt/css/dataTables.dataTables.min.css'; // Import DataTabl
 import 'datatables.net';
 import { getMaincategory } from '../../../Redux/ActionCreators/MaincategoryActionCreators';
 
-export default function MainCategory() {
+export default function Maincategory() {
 
     let [data, setData] = useState([])
     let dispatch = useDispatch()

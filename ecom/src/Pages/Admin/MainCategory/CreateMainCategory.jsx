@@ -9,7 +9,7 @@ import imageValidator from '../../Validators/imageValidator'
 import { createMaincategory } from '../../../Redux/ActionCreators/MaincategoryActionCreators'
 
  
-export default function CreateMainCategory() {
+export default function CreateMaincategory() {
     let [data, setData] = useState({
         name: "",
         pic: "",

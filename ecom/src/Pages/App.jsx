@@ -10,9 +10,9 @@ import TestimonialsPage from './TestimonialsPage'
 import Error404Page from './Error404Page'
 import ContactUsPage from './ContactUsPage'
 import AdminHome from './Admin/Home/AdminHome'
-import MainCategory from './Admin/MainCategory/MainCategory'
-import CreateMainCategory from './Admin/MainCategory/CreateMainCategory'
-import UpdateMainCategory from './Admin/MainCategory/UpdateMainCategory'
+import Maincategory from './Admin/MainCategory/Maincategory'
+import CreateMaincategory from './Admin/MainCategory/CreateMaincategory'
+import UpdateMaincategory from './Admin/MainCategory/UpdateMaincategory'
 
 
 
@@ -31,9 +31,9 @@ export default function App() {
 
                 {/* Admin Pages */}
                 <Route path='/admin' element={<AdminHome />} />
-                <Route path='/admin/maincategory' element={<MainCategory/>} />
-                <Route path='/admin/maincategory/create' element={<CreateMainCategory/>} />
-                <Route path='/admin/maincategory/update/:id' element={ <UpdateMainCategory/> } />
+                <Route path='/admin/maincategory' element={<Maincategory/>} />
+                <Route path='/admin/maincategory/create' element={<CreateMaincategory/>} />
+                <Route path='/admin/maincategory/update/:id' element={ <UpdateMaincategory/> } />
                 
 
             </Routes>

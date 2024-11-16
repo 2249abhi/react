@@ -9,7 +9,7 @@ import imageValidator from '../../Validators/imageValidator'
 
 import {getMaincategory, updateMaincategory, editMaincategory} from "../../../Redux/ActionCreators/MaincategoryActionCreators"
 
-export default function UpdateMainCategory() {
+export default function UpdateMaincategory() {
 
     let {id} = useParams()
     let [maincategory, setMaincategory] = useState([])
