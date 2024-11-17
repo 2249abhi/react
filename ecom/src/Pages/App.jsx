@@ -27,6 +27,10 @@ import ListTestimonial from './Admin/Testimonial/ListTestimonial'
 import CreateTestimonial from './Admin/Testimonial/CreateTestimonial'
 import UpdateTestimonial from './Admin/Testimonial/UpdateTestimonial'
 
+import ListProduct from './Admin/Product/ListProduct'
+import CreateProduct from './Admin/Product/CreateProduct'
+import UpdateProduct from './Admin/Product/UpdateProduct'
+
 
 
 export default function App() {
@@ -59,6 +63,10 @@ export default function App() {
                 <Route path='/admin/testimonial' element={<ListTestimonial/>} />
                 <Route path='/admin/testimonial/create' element={<CreateTestimonial/>} />
                 <Route path='/admin/testimonial/update/:id' element={ <UpdateTestimonial/> } />
+
+                <Route path='/admin/product' element={<ListProduct/>} />
+                <Route path='/admin/product/create' element={<CreateProduct/>} />
+                <Route path='/admin/product/update/:id' element={ <UpdateProduct/> } />
                 
                 
 
