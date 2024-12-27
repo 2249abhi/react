@@ -1,7 +1,16 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 
 export default function Navbar() {
+    let navigate = useNavigate()
+    function logout() {
+        localStorage.removeItem("login")
+        localStorage.removeItem("name")
+        localStorage.removeItem("email")
+        localStorage.removeItem("userid")
+        localStorage.removeItem("role")
+        navigate("/login")
+    }
     return (
         <>
             {/* <!-- Topbar Start --> */}
@@ -60,18 +69,6 @@ export default function Navbar() {
                                 <NavLink to="/shop" className="nav-item nav-link">Shop</NavLink>
                                 <NavLink to="/features" className="nav-item nav-link">Features</NavLink>
                                 <NavLink to="/testimonials" className="nav-item nav-link">Testimonials</NavLink>
-                                {/* <div className="nav-item dropdown">
-                                    <a href="#" className="nav-link" data-bs-toggle="dropdown">
-                                        <span className="dropdown-toggle">Pages</span>
-                                    </a>
-                                    <div className="dropdown-menu">
-                                        <a href="feature.html" className="dropdown-item">Our Features</a>
-                                        <a href="team.html" className="dropdown-item">Our team</a>
-                                        <a href="testimonial.html" className="dropdown-item">Testimonial</a>
-                                        <a href="FAQ.html" className="dropdown-item">FAQs</a>
-                                        <a href="404.html" className="dropdown-item">404 Page</a>
-                                    </div>
-                                </div> */}
                                 <NavLink to="/contactus" className="nav-item nav-link">Contact</NavLink>
                                 <NavLink to="/admin" className="nav-item nav-link">Admin</NavLink>
                                 {/* <div className="nav-btn px-3">
@@ -81,7 +78,35 @@ export default function Navbar() {
                             </div>
                         </div>
                         <div className="d-none d-xl-flex flex-shrink-0 ps-4">
-                            <NavLink to="/" className='btn btn-primary rounded-pill py-3 px-5'>Login</NavLink>
+
+                            {
+                                localStorage.getItem("login") ? 
+                                <>
+                                <div className="nav-item dropdown">
+                                    <a href="#" className="nav-link" data-bs-toggle="dropdown">
+                                        <span className="dropdown-toggle">{ localStorage.getItem("name") }</span>
+                                    </a>
+                                    <div className="dropdown-menu">
+                                        {
+                                            localStorage.getItem('role') === 'Buyer' ?
+                                            <>
+                                                <Link to="/profile" className="dropdown-item">Profile</Link>    
+                                                <Link to="/cart" className="dropdown-item">Cart</Link>
+                                                <Link to="/checkout" className="dropdown-item">Checkout</Link>
+                                            </>
+                                            :
+                                            <Link to="/profile" className="dropdown-item">Profile</Link>    
+                                            
+                                        }
+                                        <button onClick={logout} className="dropdown-item">Logout</button>
+                                    </div>
+                                </div>
+                                </> :
+                                <NavLink to="/login" className='btn btn-primary rounded-pill py-3 px-5'>Login</NavLink>
+                            }
+                            
+
+
                         </div>
                     </nav>
                 </div>

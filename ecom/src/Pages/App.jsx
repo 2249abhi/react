@@ -30,6 +30,8 @@ import UpdateTestimonial from './Admin/Testimonial/UpdateTestimonial'
 import ListProduct from './Admin/Product/ListProduct'
 import CreateProduct from './Admin/Product/CreateProduct'
 import UpdateProduct from './Admin/Product/UpdateProduct'
+import Signup from './Signup'
+import Login from './Login'
 
 
 
@@ -44,6 +46,8 @@ export default function App() {
                 <Route path='/features' element={<FeaturesPage />} />
                 <Route path='/testimonials' element={<TestimonialsPage />} />
                 <Route path='/contactus' element={<ContactUsPage />} />
+                <Route path='/signup' element={<Signup />} />
+                <Route path='/login' element={<Login />} />
                 <Route path='/*' element={<Error404Page />} />
 
                 {/* Admin Pages */}
